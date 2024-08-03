@@ -11,9 +11,16 @@ import Header from "../components/Header";
 import CartCard from "../components/CartCard";
 import { fonts } from "../utils/fonts";
 import { CartContext } from "../context/CartContext";
+import { useNavigation } from "@react-navigation/native";
 
 const CartScreen = () => {
   const { cartItems, deleteCartItem, totalPrice } = useContext(CartContext);
+
+  const navigation = useNavigation();
+
+  const handleCheckout = () => {
+    navigation.navigate("Checkout", { totalPrice: totalPrice });
+  };
 
   const handleDeleteItem = async (id) => {
     await deleteCartItem(id);
@@ -49,7 +56,7 @@ const CartScreen = () => {
                 </Text>
               </View>
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleCheckout}>
               <Text style={styles.buttonText}>Checkout</Text>
             </TouchableOpacity>
           </>

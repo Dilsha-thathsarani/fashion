@@ -11,6 +11,7 @@ import ReorderScreen from "./src/screen/ReorderScreen";
 import AccountScreen from "./src/screen/AccountScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { CartContext, CartProvider } from "./src/context/CartContext";
+import CheckoutScreen from "./src/components/UserDetails";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,7 @@ const MyHomeStack = () => {
     >
       <Stack.Screen name="HOME" component={HomeScreen} />
       <Stack.Screen name="PRODUCT_DETAILS" component={ProductDetailsScreen} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Stack.Navigator>
   );
 };
